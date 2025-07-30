@@ -1,13 +1,14 @@
 # opacity6585.dev – Legal Docs for Discord Bot
 
-This website hosts the **Terms of Service** and **Privacy Policy** for my Discord bot, `Starboy`.
+This website hosts the **Terms of Service** and **Privacy Policy** for my Discord bot, `Starboy`, while also functioning as my personal website.
 
 ## 🌐 Live Website
-[https://opacity6585.dev](https://opacity6585.dev)
+[https://www.opacity6585.dev](https://www.opacity6585.dev)
 
 ## 📄 Pages
 - `/terms` – Terms of Service
 - `/privacy` – Privacy Policy
+- `/commands` - Bot Commands
 
 ## 🛠 Built With
 - HTML5
