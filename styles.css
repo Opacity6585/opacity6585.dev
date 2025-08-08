@@ -49,3 +49,51 @@ footer {
   margin-top: 4rem;
   border-top: 1px solid #333;
 }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab.active {
+  background: #4da6ff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content ul li {
+  background-color: #1e1e1e;
+  padding: 12px;
+  border-left: 4px solid #4da6ff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.tab-content ul li code {
+  background: #000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.tab-content ul li strong {
+  color: #4da6ff;
+}
