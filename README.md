@@ -8,7 +8,7 @@ This website hosts the **Terms of Service** and **Privacy Policy** for my Discor
 ## 📄 Pages
 - `/terms` – Terms of Service
 - `/privacy` – Privacy Policy
-- `/commands` - Bot Commands (To Be Added)
+- `/commands` - Bot Commands
 
 ## 🛠 Built With
 - HTML5
