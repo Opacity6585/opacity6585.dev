@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starboy Commands</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Starboy Commands</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://discord.gg/KMHwb3u7DM">Support</a>
+    </nav>
+  </header>
+  <main>
+    <div class="tabs">
+      <button class="tab active" data-target="moderation">Moderation</button>
+      <button class="tab" data-target="server management">Server Management</button>
+      <button class="tab" data-target="utility">Utility</button>
+      <button class="tab" data-target="information">Information</button>
+      <button class="tab" data-target="fun">Fun</button>
+      <button class="tab" data-target="roleplay">Roleplay</button>
+      <button class="tab" data-target="games">Games</button>
+      <button class="tab" data-target="voice channels">Voice Channels</button>
+      <button class="tab" data-target="bot support">Bot Support</button>
+      <button class="tab" data-target="networths">Networths</button>
+    </div>
+
+    <div id="moderation" class="tab-content active">
+      <ul>
+        <li>
+        <strong>!mute</strong><br>
+        <em>Description:</em> Mute a user (restrict sending messages).<br>
+        <em>Usage:</em> <code>!mute [user] (reason) (time_str)</code><br>
+        <em>Note:</em> Unmute with <code>!unmute [user] (reason)</code>
+        </li>
+        <li>
+        <strong>!rmute</strong><br>
+        <em>Description:</em> Reaction-mute a user (restrict adding reactions).<br>
+        <em>Usage:</em> <code>!rmute [user] (reason) (time_str) </code><br>
+        <em>Note:</em> Unmute with <code>!unrmute [user] (reason)</code>
+        </li>
+        <li>
+        <strong>!amute</strong><br>
+        <em>Description:</em> Attachment-mute a user (restrict sending images/files).<br>
+        <em>Usage:</em> <code>!amute [user] (reason) (time_str)</code><br>
+        <em>Note:</em> Unmute with <code>!aunmute [user] (reason)</code>
+        </li>
+        <li>
+        <strong>!vcmute</strong><br>
+        <em>Description:</em> Mute a user from speaking in voice channels.<br>
+        <em>Usage:</em> <code>!vcmute [user] (reason) (time_str)</code><br>
+        <em>Note:</em> Unmute with <code>!vcunmute [user] (reason)</code>
+        </li>
+        <li>
+        <strong>!warn</strong><br>
+        <em>Description:</em> Issue a warning to a user and log it in their moderation history.<br>
+        <em>Usage:</em> <code>!warn [user] [reason]</code><br>
+        </li>
+        <li>
+        <strong>!jail</strong><br>
+        <em>Description:</em> Jail a user for a reason and time.<br>
+        <em>Usage:</em> <code>!jail [user] (reason) (time_str)</code><br>
+        <em>Note:</em> Unjail with <code>!unjail [user] (reason)</code>
+        </li>
+        <li>
+        <strong>!kick</strong><br>
+        <em>Description:</em> Kick a user from the server.<br>
+        <em>Usage:</em> <code>!kick [user] (reason)</code><br>
+        </li>
+        <li>
+        <strong>!ban</strong><br>
+        <em>Description:</em> Ban a user from the server.<br>
+        <em>Usage:</em> <code>!ban [user] (reason) (time_str)</code><br>
+        <em>Note:</em> Unban them with <code>!unban [user_id] (reason)</code>
+        </li>
+        <li>
+        <strong>!nickname</strong><br>
+        <em>Description:</em> Change a user's nickname, reset it, or force a nickname.<br>
+        <em>Usage:</em> <code>!nick [action] [args]</code><br>
+        <em>Actions:</em> `set`, `reset`, `force`.
+        </li>
+        <li>
+        <strong>!mhistory</strong><br>
+        <em>Description:</em> Check a user's moderation history.<br>
+        <em>Usage:</em> <code>!mhistory [user]</code><br>
+        </li>
+      </ul>
+    </div>
+    <div id="server management" class="tab-content">
+      <ul>
+        <li>
+        <strong>!setup</strong><br>
+        <em>Description:</em> Setup your discord server with various modules.<br>
+        <em>Usage:</em> <code>!setup [module]</code><br>
+        <em>Note:</em> Use <code>!setup</code> to see available modules.
+        </li>
+        <li>
+        <strong>!role</strong><br>
+        <em>Description:</em> Manage roles in the server.<br>
+        <em>Usage:</em> <code>!role [action] [args]</code><br>
+        <em>Actions:</em> Admin: `editperms`, `blacklist`, `unblacklist`; Regular: `create`, `list`, `rename`, `recolor`, `delete`.
+        </li>
+      </ul>
+    </div>
+    <div id="utility" class="tab-content">
+      <ul>
+        <li>
+        <strong>!purge</strong><br>
+        <em>Description:</em> Bulk delete messages in a channel, optionally from a specific user or up to a specific message ID.<br>
+        <em>Usage:</em> <code>!purge [limit] (user)</code> | <code>!purge id [message_id]</code><br>
+        </li>
+        <li>
+        <strong>!ping</strong><br>
+        <em>Description:</em> Check the bot's latency.<br>
+        <em>Usage:</em> <code>!ping</code><br>
+        </li>
+        <li>
+        <strong>!nuke</strong><br>
+        <em>Description:</em> Nuke a channel (delete and recreate it).<br>
+        <em>Usage:</em> <code>!nuke</code><br>
+        <em>Note:</em> This command has a 15 minute cooldown, and has an extra command, <code>/nukecode</code>, to retrieve the code faster instead of checking your DMS.
+        </li>
+        <li>
+        <strong>!lock</strong><br>
+        <em>Description:</em> Lock the current channel to prevent non-moderators from sending messages.<br>
+        <em>Usage:</em> <code>!lock</code> | <code>!lock hard</code> (Administrators only).<br>
+        <em>Note:</em> You can unlock the channel with <code>!unlock</code>. Keep in mind that it will let everyone speak again, and it can be used in a channel that normal people don't have messaging permissions in without locking it beforehand.
+        </li>
+        <li>
+        <strong>!botclear</strong><br>
+        <em>Description:</em> Clears all messages from the bot and messages beginning with the prefix.<br>
+        <em>Usage:</em> <code>!bc</code><br>
+        </li>
+        <li>
+        <strong>!clearsnipe</strong><br>
+        <em>Description:</em> Clears the snipe storage for the current channel.<br>
+        <em>Usage:</em> <code>!cs</code><br>
+        <em>Note:</em> The snipe storage automatically clears after two hours, or on a bot restart.
+        </li>
+        <li>
+        <strong>!tz</strong><br>
+        <em>Description:</em> Set, view, or do more with timezones.<br>
+        <em>Usage:</em> <code>!tz [action] [args]</code><br>
+        <em>Actions:</em> `set`, `list`, `info`, `convert`.
+        </li>
+        <li>
+        <strong>!afk</strong><br>
+        <em>Description:</em> Go AFK for a bit with a status.<br>
+        <em>Usage:</em> <code>!afk (status)</code><br>
+        <em>Note:</em> When you send a message, you will be marked as not AFK anymore.
+        </li>
+        <li>
+        <strong>!snipe</strong><br>
+        <em>Description:</em> Snipes the most recent deleted message(s) in the channel.<br>
+        <em>Usage:</em> <code>!s (index)</code><br>
+        </li>
+        <li>
+        <strong>!reactionsnipe</strong><br>
+        <em>Description:</em> Snipes the most recent deleted reaction(s) in the channel.<br>
+        <em>Usage:</em> <code>!rs (index)</code><br>
+        </li>
+        <li>
+        <strong>!editsnipe</strong><br>
+        <em>Description:</em> Snipes the most recent edited message(s) in the channel.<br>
+        <em>Usage:</em> <code>!es (index)</code><br>
+        </li>
+      </ul>
+    </div>
+    <div id="information" class="tab-content">
+      <ul>
+        <li>
+        <strong>!serverinfo</strong><br>
+        <em>Description:</em> Display information about the server.<br>
+        <em>Usage:</em> <code>!serverinfo</code><br>
+        </li>
+        <li>
+        <strong>!botinfo</strong><br>
+        <em>Description:</em> Display information about the bot.<br>
+        <em>Usage:</em> <code>!botinfo</code><br>
+        </li>
+        <li>
+        <strong>!inrole</strong><br>
+        <em>Description:</em> Displays a paginated list of members with a specific role.<br>
+        <em>Usage:</em> <code>!ir [role]</code><br>
+        </li>
+        <li>
+        <strong>!patchnotes</strong><br>
+        <em>Description:</em> Fetch or list patch notes.<br>
+        <em>Usage:</em> <code>!pn [date]</code> | <code>!pn list</code> <br>
+        </li>
+        <li>
+        <strong>!avatar</strong><br>
+        <em>Description:</em> Displays the avatar of a user or yourself.<br>
+        <em>Usage:</em> <code>!av (user)</code><br>
+        </li>
+        <li>
+        <strong>!banner</strong><br>
+        <em>Description:</em> Fetches and displays the banner of a specified user.<br>
+        <em>Usage:</em> <code>!banner (user)</code><br>
+        </li>
+        <li>
+        <strong>!serveravatar</strong><br>
+        <em>Description:</em> Displays the server-specific avatar of a user or yourself.<br>
+        <em>Usage:</em> <code>!sav (user)</code><br>
+        </li>
+        <li>
+        <strong>!serverbanner</strong><br>
+        <em>Description:</em> Fetches and displays the server-specific banner (guild banner) of a specified user.<br>
+        <em>Usage:</em> <code>!sbanner (user)</code><br>
+        </li>
+        <li>
+        <strong>!servericon</strong><br>
+        <em>Description:</em> Provides the user with the current server's icon.<br>
+        <em>Usage:</em> <code>!sicon</code><br>
+        </li>
+      </ul>
+    </div>
+    <div id="fun" class="tab-content">
+      <ul>
+        <li>
+        <strong>!quickpoll</strong><br>
+        <em>Description:</em> Create a quick yes/no poll.<br>
+        <em>Usage:</em> <code>!qp [question]</code><br>
+        </li>
+        <li>
+        <strong>!showspotifyactivity</strong><br>
+        <em>Description:</em> Shows the current Spotify activity of a user.<br>
+        <em>Usage:</em> <code>!snp (user)</code><br>
+        </li>
+        <li>
+        <strong>!eightball</strong><br>
+        <em>Description:</em> Ask the 8 ball a question.<br>
+        <em>Usage:</em> <code>!8ball [question]</code><br>
+        </li>
+        <li>
+        <strong>!coinflip</strong><br>
+        <em>Description:</em> Flip a coin to get heads or tails!<br>
+        <em>Usage:</em> <code>!coinflip</code><br>
+        </li>
+        <li>
+        <strong>!penis</strong><br>
+        <em>Description:</em> Generates a random size penis for you or another user.<br>
+        <em>Usage:</em> <code>!penis (user)</code><br>
+        </li>     
+        <li>
+        <strong>!gay</strong><br>
+        <em>Description:</em> Generates a random percentage of how gay you or another user is.<br>
+        <em>Usage:</em> <code>!gay (user)</code><br>
+        </li>  
+      </ul>
+    </div>
+    <div id="roleplay" class="tab-content">
+      <ul>
+        <li>
+        <strong>!pickup</strong><br>
+        <em>Description:</em> Get a random pickup line sent to your DMs.<br>
+        <em>Usage:</em> <code>!pickup</code><br>
+        </li>
+        <li>
+        <strong>!rizzrating</strong><br>
+        <em>Description:</em> Get the rizz rating of another user.<br>
+        <em>Usage:</em> <code>!rr [user]</code><br>
+        </li>
+        <li>
+        <strong>!hug</strong><br>
+        <em>Description:</em> Hug another user.<br>
+        <em>Usage:</em> <code>!hug [user]</code><br>
+        </li>
+        <li>
+        <strong>!cuddle</strong><br>
+        <em>Description:</em> Cuddle another user.<br>
+        <em>Usage:</em> <code>!cuddle [user]</code><br>
+        </li>
+        <li>
+        <strong>!kiss</strong><br>
+        <em>Description:</em> Kiss another user.<br>
+        <em>Usage:</em> <code>!kiss [user]</code><br>
+        </li>
+        <li>
+        <strong>!kill</strong><br>
+        <em>Description:</em> Kill another user.<br>
+        <em>Usage:</em> <code>!kill [user]</code><br>
+        </li>
+        <li>
+        <strong>!askout</strong><br>
+        <em>Description:</em> Ask out another user.<br>
+        <em>Usage:</em> <code>!askout [user]</code><br>
+        </li>
+        <li>
+        <strong>!breakup</strong><br>
+        <em>Description:</em> Break up with your partner.<br>
+        <em>Usage:</em> <code>!breakup</code><br>
+        <em>Note:</em> This requires the approval of both users in the e-relationship.
+        </li>
+        <li>
+        <strong>!dump</strong><br>
+        <em>Description:</em> Dump your partner.<br>
+        <em>Usage:</em> <code>!dump</code><br>
+        <em>Note:</em> This does NOT require the approval of both users in the e-relationship.
+        </li>
+        <li>
+        <strong>!emarry</strong><br>
+        <em>Description:</em> Propose to your partner.<br>
+        <em>Usage:</em> <code>!emarry [user]</code><br>
+        <em>Note:</em> You must already be in an e-relationship with the user you want to e-marry.
+        </li>
+        <li>
+        <strong>!edivorce</strong><br>
+        <em>Description:</em> Divorce your married partner.<br>
+        <em>Usage:</em> <code>!edivorce</code><br>
+        </li>
+        <li>
+        <strong>!relationshipstatus</strong><br>
+        <em>Description:</em> Check the relationship status of a user.<br>
+        <em>Usage:</em> <code>!rstatus [user]</code><br>
+        <em>Note:</em> If no user is mentioned, it checks the status of the command user.
+        </li>
+        <li>
+        <strong>!relationshipleaderboard</strong><br>
+        <em>Description:</em> Display the leaderboard for the longest-lasting e-relationships and e-marriages.<br>
+        <em>Usage:</em> <code>!rlb</code><br>
+        </li>
+        <li>
+        <strong>!marriagerole</strong><br>
+        <em>Description:</em> Creates or manages a custom marriage role for you and your spouse.<br>
+        <em>Usage:</em> <code>!mrole [action] [args]</code><br>
+        <em>Actions:</em> `create`, `rename`, `recolor`.
+        </li>
+      </ul>
+    </div>
+    <div id="games" class="tab-content">
+      <ul>
+        <li>
+        <strong>!rockpaperscissors</strong><br>
+        <em>Description:</em> Play rock paper scissors against another user.<br>
+        <em>Usage:</em> <code>!rps [user]</code><br>
+        </li>
+        <li>
+        <strong>!tictactoe</strong><br>
+        <em>Description:</em> Play tic tac toe against another user.<br>
+        <em>Usage:</em> <code>!ttt [user]</code><br>
+        </li>
+        <li>
+        <strong>!blackjack</strong><br>
+        <em>Description:</em> Play blackjack against the bot (bot plays the dealer).<br>
+        <em>Usage:</em> <code>!bj</code><br>
+        </li>
+        <li>
+        <strong>!guessthenumber</strong><br>
+        <em>Description:</em> Guess a random number the bot chooses against other users.<br>
+        <em>Usage:</em> <code>!gtn</code><br>
+        </li>
+      </ul>
+    </div>
+    <div id="voice channels" class="tab-content">
+      <ul>
+        <li>
+        <strong>!vc</strong><br>
+        <em>Description:</em> Manage your custom voice channel.<br>
+        <em>Usage:</em> <code>!vc [action] [args]</code><br>
+        <em>Actions:</em> `unlock`, `ghost`, `claim`, `unban`, `ban`, `setlimit`, `allow`, `kick`, `reveal`, `rename`.
+        </li>
+        <li>
+        <strong>!join</strong><br>
+        <em>Description:</em> Join the user's voice channel and auto-deafens.<br>
+        <em>Usage:</em> <code>!join</code><br>
+        </li>
+        <li>
+        <strong>!leave</strong><br>
+        <em>Description:</em> Leave the user's voice channel.<br>
+        <em>Usage:</em> <code>!leave</code><br>
+        </li>
+        <li>
+        <strong>!play</strong><br>
+        <em>Description:</em> Play a song in your current voice channel.<br>
+        <em>Usage:</em> <code>!p [attachment or link]</code><br>
+        <em>Note:</em> Currently supports YouTube links and file attachments.
+        </li>
+        <li>
+        <strong>!volume</strong><br>
+        <em>Description:</em> Set the volume of the bot with a visual indicator.<br>
+        <em>Usage:</em> <code>!volume [1-100]</code><br>
+        </li>
+        <li>
+        <strong>!queue</strong><br>
+        <em>Description:</em> Shows the current queue list with duration and requester info.<br>
+        <em>Usage:</em> <code>!queue</code><br>
+        </li>
+        <li>
+        <strong>!skip</strong><br>
+        <em>Description:</em> Skip the currently playing track.<br>
+        <em>Usage:</em> <code>!skip</code><br>
+        </li>
+        <li>
+        <strong>!stop</strong><br>
+        <em>Description:</em> Stops the playback and clears the queue.<br>
+        <em>Usage:</em> <code>!stop</code><br>
+        </li>
+        <li>
+        <strong>!pause</strong><br>
+        <em>Description:</em> Pauses the current track.<br>
+        <em>Usage:</em> <code>!pause</code><br>
+        </li>
+        <li>
+        <strong>!resume</strong><br>
+        <em>Description:</em> Resumes the current track.<br>
+        <em>Usage:</em> <code>!resume</code><br>
+        </li>
+        <li>
+        <strong>!clearqueue</strong><br>
+        <em>Description:</em> Clears the queue.<br>
+        <em>Usage:</em> <code>!cq</code><br>
+        </li>
+        <li>
+        <strong>!nowplaying</strong><br>
+        <em>Description:</em> Shows the currently playing track with timestamp.<br>
+        <em>Usage:</em> <code>!np</code><br>
+        </li>
+      </ul>
+    </div>
+    <div id="bot support" class="tab-content">
+      <ul>
+        <li>
+        <strong>/bugreport</strong><br>
+        <em>Description:</em> Report a bug to the bot developers.<br>
+        <em>Usage:</em> <code>/bugreport [description] (command) (screenshot)</code><br>
+        <em>Note:</em> Use this command seriously. Any joke reports will result in an instant bot ban.
+        </li>
+      </ul>
+    </div>
+    <div id="networths" class="tab-content">
+      <ul>
+        <li>
+        <strong>!sobs</strong><br>
+        <em>Description:</em> Display your sobs, another user's sobs, or the sob leaderboard.<br>
+        <em>Usage:</em> <code>!sobs (user)</code> | <code>!sobs lb</code><br>
+        </li>
+        <li>
+        <strong>!flames</strong><br>
+        <em>Description:</em> Display your flames, another user's flames, or the flame leaderboard.<br>
+        <em>Usage:</em> <code>!flames (user)</code> | <code>!flames lb</code><br>
+        </li>
+        <li>
+        <strong>!skulls</strong><br>
+        <em>Description:</em> Display your skulls, another user's skulls, or the skull leaderboard.<br>
+        <em>Usage:</em> <code>!skulls (user)</code> | <code>!skulls lb</code><br>
+        </li>
+      </ul>
+    </div>
+  <p><em>Note: This is a work in progress. Some commands may not be fully implemented yet.</em></p>
+  </main>
+  <footer>
+    &copy; 2025 Opacity6585. All rights reserved.
+  </footer>
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
