@@ -120,7 +120,9 @@ footer {
   margin-left: auto;
 }
 
-[hidden] { display: none !important; }
+[hidden] { 
+  display: none !important; 
+}
 
 .user-btn {
   display: flex;
@@ -174,6 +176,19 @@ footer {
   padding: 6px 6px 8px 6px;
   border-bottom: 1px solid #2a2a2a;
   margin-bottom: 6px;
+}
+
+.user-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.user-id span { 
+  display: inline-block; 
 }
 
 .logout-btn {

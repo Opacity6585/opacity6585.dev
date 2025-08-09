@@ -3,7 +3,7 @@
   if (!userMenu) return;
 
   function avatarUrl(user) {
-    if (!user.avatar) return `https://cdn.discordapp.com/embed/avatars/0.png`;
+    if (!user?.avatar) return "https://cdn.discordapp.com/embed/avatars/0.png";
     const ext = user.avatar.startsWith("a_") ? "gif" : "png";
     return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=64`;
   }
@@ -33,7 +33,7 @@
         <img src="${avatarUrl(u)}" alt="" class="user-avatar lg">
         <div>
           <div class="user-username">${u.username}</div>
-          <div class="user-id">ID: ${u.id}</div>
+          <div class="user-id"><span>ID:</span><span>${u.id}</span></div>
         </div>
       </div>
       <button id="logout-btn" class="logout-btn">Log out</button>
