@@ -178,3 +178,16 @@ footer {
 .logout-btn:hover {
   background: #313131;
 }
+
+#login-link {
+  background-color: #4da6ff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+#login-link:hover {
+  background-color: #3399ff;
+}
