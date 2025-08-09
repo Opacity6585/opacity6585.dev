@@ -3,7 +3,7 @@
   if (!userMenu) return;
 
   function avatarUrl(user) {
-    if (!user.avatar) return `https://cdn.discordapp.com/embed/avatars/0.png`;
+    if (!user?.avatar) return "https://cdn.discordapp.com/embed/avatars/0.png";
     const ext = user.avatar.startsWith("a_") ? "gif" : "png";
     return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=64`;
   }
@@ -22,7 +22,7 @@
   }
 
   const u = data.user;
-    userMenu.innerHTML = `
+  userMenu.innerHTML = `
     <button class="user-btn" id="user-btn" aria-expanded="false" aria-haspopup="menu">
       <img src="${avatarUrl(u)}" alt="" class="user-avatar">
       <span class="user-name">${u.username}</span>
@@ -38,7 +38,7 @@
       </div>
       <button id="logout-btn" class="logout-btn">Log out</button>
     </div>
-`;
+  `;
 
   const btn = document.getElementById("user-btn");
   const dd  = document.getElementById("user-dropdown");
