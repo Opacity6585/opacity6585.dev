@@ -217,3 +217,58 @@ footer {
 #login-link:hover {
   background-color: #3399ff;
 }
+
+/* =========================
+   Mobile tweaks (<= 720px)
+   ========================= */
+@media (max-width: 720px) {
+  header { padding: .75rem .9rem; gap: .5rem; }
+
+  header h1 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 65%;
+  }
+
+  nav {
+    order: 2;
+    flex: 1 1 100%;
+    margin-left: 0;
+    margin-top: .35rem;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  nav a { margin: 0; font-size: .95rem; }
+
+  #user-menu,
+  .user-menu {
+    order: 3;
+    margin-left: 0;
+    margin-top: .35rem;
+  }
+
+  .user-btn { padding: 4px 8px; }
+  #login-link { padding: 6px 10px; }
+
+  .user-dropdown {
+    position: fixed;
+    right: 12px;
+    top: 56px;
+    min-width: 240px;
+    z-index: 1000;
+  }
+
+  main { padding: 0 .9rem; }
+}
+
+@media (max-width: 600px) {
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+  .tab { flex: 0 0 auto; }
+}
