@@ -23,6 +23,13 @@ header h1 {
   font-size: 1.75rem;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
 nav a {
   color: #aaa;
   margin: 0 10px;
@@ -109,7 +116,10 @@ footer {
 
 .user-menu {
   position: relative;
+  margin-left: 12px;
 }
+
+[hidden] { display: none !important; }
 
 .user-btn {
   display: flex;
