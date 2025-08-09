@@ -243,11 +243,14 @@ footer {
 
   nav a { margin: 0; font-size: .95rem; }
 
-  #user-menu,
-  .user-menu {
-    order: 3;
-    margin-left: 0;
-    margin-top: .35rem;
+  #user-menu, 
+  .user-menu { 
+    order: 3; 
+    margin-left: 0; 
+    margin-top: .35rem; 
+    display: flex; 
+    justify-content: flex-end; 
+    width: 100%;
   }
 
   .user-btn { padding: 4px 8px; }
@@ -255,9 +258,11 @@ footer {
 
   .user-dropdown {
     position: fixed;
+    top: 64px;
     right: 12px;
-    top: 56px;
-    min-width: 240px;
+    left: 12px;
+    max-width: 420px;
+    margin-left: auto;
     z-index: 1000;
   }
 
