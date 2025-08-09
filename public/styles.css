@@ -114,9 +114,10 @@ footer {
 
 /* -------- User Menu Styles -------- */
 
+#user-menu,
 .user-menu {
   position: relative;
-  margin-left: 12px;
+  margin-left: auto;
 }
 
 [hidden] { display: none !important; }
