@@ -1,0 +1,108 @@
+/* ===== Reusable components (user menu, buttons, utilities) ===== */
+
+/* User menu anchor */
+#user-menu,.user-menu{
+  position:relative;
+  margin-left:auto;
+}
+
+/* Hide via [hidden] consistently */
+[hidden] { 
+  display:none !important;
+}
+
+/* Pill button w/ avatar */
+.user-btn {
+  display:flex; 
+  align-items:center; 
+  gap:8px;
+  background:#2a2a2a; 
+  border:1px solid #333;
+  border-radius:999px; 
+  padding:4px 10px;
+  color:var(--text); 
+  cursor:pointer;
+}
+
+.user-avatar { 
+  width:24px; 
+  height:24px; 
+  border-radius:50% 
+}
+
+.user-avatar.lg { 
+  width:36px; 
+  height:36px; 
+  border-radius:50% }
+
+.user-name { 
+  font-size:.95rem
+}
+
+.chev { 
+  opacity:.8 
+}
+
+/* Dropdown panel */
+.user-dropdown {
+  position:absolute; 
+  right:0; 
+  top:calc(100% + 6px);
+  background:var(--card); 
+  border:1px solid var(--border);
+  border-radius:var(--radius); 
+  min-width:220px; 
+  padding:10px;
+  box-shadow:var(--shadow); 
+  z-index:1000;
+}
+.user-info {
+  display:flex; 
+  align-items:center; 
+  gap:10px;
+  padding:6px 6px 8px; 
+  border-bottom:1px solid var(--border);
+  margin-bottom:6px;
+}
+
+/* ID line inline */
+.user-id {
+  display:inline-flex; 
+  align-items:center; 
+  gap:6px;
+  white-space:nowrap; 
+  font-size:.95rem; 
+  color:#ccc;
+}
+
+.user-id span { 
+  display:inline-block 
+}
+
+/* Logout button */
+.logout-btn {
+  width:100%; 
+  background:#2a2a2a; 
+  border:1px solid #333;
+  border-radius:8px; 
+  padding:8px 10px; 
+  color:var(--text);
+  cursor:pointer;
+}
+
+.logout-btn:hover { 
+  background:#313131 
+}
+
+/* Login link (when logged out) */
+#login-link {
+  background:var(--brand); 
+  color:#fff;
+  padding:6px 12px; 
+  border-radius:6px; 
+  text-decoration:none;
+}
+
+#login-link:hover { 
+  background:var(--brand-2)
+}
