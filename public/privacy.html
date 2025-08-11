@@ -1,101 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy</title>
 
-    <meta property="og:title" content="Starboy Discord Bot – Privacy Policy" />
-    <meta property="og:description" content="Learn how the Starboy Discord bot handles data and privacy." />
-    <meta property="og:url" content="https://www.opacity6585.dev/privacy" />
-    <meta property="og:type" content="website" />
+  <meta property="og:title" content="Starboy Discord Bot – Privacy Policy" />
+  <meta property="og:description" content="Learn how the Starboy Discord bot handles data and privacy." />
+  <meta property="og:url" content="https://opacity6585.dev/privacy" />
+  <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/mobile.css">
-
-    <script src="user.js" defer></script>
-    <script src="nav.js" defer></script>
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/mobile.css" />
 </head>
 <body>
-    <header>
-        <h1>Starboy Privacy Policy</h1>
+  <header>
+    <h1>Starboy Privacy Policy</h1>
 
-        <nav class="site-nav">
-            <div class="nav-links">
-                <a href="/index.html">Home</a>
-                <a href="/commands.html">Commands</a>
-                <a href="/terms.html">Terms</a>
-                <a href="/privacy.html">Privacy</a>
-                <a href="https://discord.gg/KMHwb3u7DM">Support</a>
-            </div>
+    <nav class="site-nav">
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/commands.html">Commands</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="https://discord.gg/KMHwb3u7DM">Support</a>
+      </div>
 
-            <div id="user-menu" class="user-menu"></div>
+      <button id="nav-toggle" class="hamburger" aria-controls="nav-drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-            <button class="hamburger" id="nav-toggle" aria-label="Open menu" aria-controls="nav-drawer" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: July 29, 2025</p>
 
-    <div id="nav-drawer" class="nav-drawer" hidden>
-        <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-            <div class="drawer-head">
-                <div id="drawer-title">Menu</div>
-                <button class="drawer-close" id="nav-close" aria-label="Close menu">✕</button>
-            </div>
-            <div class="_anim-hook"></div>
+    <h2>1. Information We Collect</h2>
+    <p>The Bot may collect and store the following data:</p>
+    <ul>
+      <li>Deleted messages, reactions, and edited messages (temporarily in memory for up to 2 hours)</li>
+      <li>Moderation history by user ID</li>
+      <li>User relationship data (e.g., for marriage system) by user ID</li>
+      <li>Reaction-based event data</li>
+    </ul>
 
-            <nav class="drawer-links">
-                <a id="drawer-login" href="/login">Login</a>
-                <a href="/index.html">Home</a>
-                <a href="/commands.html">Commands</a>
-                <a href="/terms.html">Terms</a>
-                <a href="/privacy.html">Privacy</a>
-                <a href="https://discord.gg/KMHwb3u7DM">Support</a>
-            </nav>
+    <h2>2. Data Storage</h2>
+    <p>Data is stored in JSON files on the server where the Bot is hosted. Temporary data is automatically deleted after approximately 2 hours.</p>
+
+    <h2>3. Third-Party Services</h2>
+    <p>The Bot may connect to third-party APIs, such as Last.fm, to enhance functionality. We do not control or assume responsibility for the data policies of these third parties.</p>
+
+    <h2>4. Data Usage</h2>
+    <p>Collected data is used solely for the operation and features of the Bot. We do not sell or share user data with any external parties.</p>
+
+    <h2>5. Data Removal Requests</h2>
+    <p>If you wish to have your data removed, contact us via Discord: <strong>@opacity6585</strong>. We will respond to reasonable requests in a timely manner.</p>
+
+    <h2>6. Security</h2>
+    <p>We take reasonable steps to protect stored data. However, no system is 100% secure, and we cannot guarantee absolute protection.</p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy at any time. Updates will be posted on <a href="https://opacity6585.dev">https://opacity6585.dev</a>. Continued use of the Bot after updates means you accept the changes.</p>
+
+    <h2>8. Contact</h2>
+    <p>For privacy-related questions, contact us via Discord: <strong>@opacity6585</strong></p>
+  </main>
+
+  <footer>
+    © 2025 Opacity6585. All rights reserved.
+  </footer>
+
+  <!-- Drawer -->
+  <aside id="nav-drawer" class="nav-drawer" hidden>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <div class="drawer-head">
+        <strong id="drawer-title">Menu</strong>
+        <button id="nav-close" class="drawer-close" aria-label="Close">✕</button>
+      </div>
+
+      <a id="drawer-login-btn" class="btn btn-primary block" href="/login">Login with Discord</a>
+
+      <div id="drawer-user" class="drawer-user">
+        <div class="row">
+          <img class="user-avatar" alt="">
+          <div class="user-meta">
+            <div class="user-username"></div>
+            <div class="user-id">ID: <span class="val"></span></div>
+          </div>
         </div>
+        <button class="logout-btn">Log out</button>
+      </div>
+
+      <nav class="drawer-links">
+        <a href="/index.html">Home</a>
+        <a href="/commands.html">Commands</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="https://discord.gg/KMHwb3u7DM">Support</a>
+      </nav>
     </div>
+  </aside>
+  <div class="_anim-hook"></div>
 
-    <main>
-        <h1>Privacy Policy</h1>
-        <p>Last updated: July 30, 2025</p>
-
-        <h2>1. Information We Collect</h2>
-        <p>Starboy may collect and store the following data:</p>
-        <ul>
-            <li>Deleted messages, reactions, and edited messages (temporarily in memory for up to 2 hours)</li>
-            <li>Moderation history by user ID</li>
-            <li>User relationship data (e.g., for marriage system) by user ID</li>
-            <li>Reaction-based event data</li>
-        </ul>
-
-        <h2>2. Data Storage</h2>
-        <p>Data is stored in JSON files on the server where Starboy is hosted. Temporary data is automatically deleted after approximately 2 hours.</p>
-
-        <h2>3. Third-Party Services</h2>
-        <p>Starboy may connect to third-party APIs, such as Last.fm, to enhance functionality. We do not control or assume responsibility for the data policies of these third parties.</p>
-
-        <h2>4. Data Usage</h2>
-        <p>Collected data is used solely for the operation and features of Starboy. We do not sell or share user data with any external parties.</p>
-
-        <h2>5. Data Removal Requests</h2>
-        <p>If you wish to have your data removed, contact us via Discord: <strong>@opacity6585</strong>. We will respond to reasonable requests in a timely manner.</p>
-
-        <h2>6. Security</h2>
-        <p>We take reasonable steps to protect stored data. However, no system is 100% secure, and we cannot guarantee absolute protection.</p>
-
-        <h2>7. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy at any time. Updates will be posted on <a href="https://www.opacity6585.dev">https://www.opacity6585.dev</a>. Continued use of Starboy after updates means you accept the changes.</p>
-
-        <h2>8. Contact</h2>
-        <p>For privacy-related questions, contact us via Discord: <strong>@opacity6585</strong></p>
-    </main>
-
-    <footer>
-        &copy; 2025 Opacity6585. All rights reserved.
-    </footer>
+  <script src="/nav.js" defer></script>
 </body>
 </html>
