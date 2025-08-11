@@ -1,3 +1,4 @@
+// /nav.js
 document.addEventListener("DOMContentLoaded", () => {
   const drawer   = document.getElementById("nav-drawer");
   const openBtn  = document.getElementById("nav-toggle");
@@ -7,36 +8,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginBtn   = document.getElementById("drawer-login-btn");
   const drawerUser = document.getElementById("drawer-user");
 
+  if (!drawer || !openBtn) {
+    console.warn("[nav] Missing drawer or toggle button. Check IDs.");
+    return;
+  }
+
   function openDrawer() {
-    drawer.hidden = false;
+    console.log("[nav] openDrawer");
+    drawer.removeAttribute("hidden");
     drawer.classList.add("open");
     body.classList.add("no-scroll");
-    openBtn?.setAttribute("aria-expanded", "true");
+    openBtn.setAttribute("aria-expanded", "true");
   }
 
   function closeDrawer() {
+    console.log("[nav] closeDrawer");
     drawer.classList.remove("open");
-    setTimeout(() => { drawer.hidden = true; }, 180);
+    setTimeout(() => { drawer.setAttribute("hidden", ""); }, 200);  // hide after slide-out
     body.classList.remove("no-scroll");
-    openBtn?.setAttribute("aria-expanded", "false");
+    openBtn.setAttribute("aria-expanded", "false");
   }
 
-  openBtn?.addEventListener("click", () => {
-    if (drawer.hidden || !drawer.classList.contains("open")) openDrawer();
-    else closeDrawer();
+  openBtn.addEventListener("click", () => {
+    console.log("[nav] toggle clicked");
+    const isOpen = drawer.classList.contains("open");
+    isOpen ? closeDrawer() : openDrawer();
   });
 
   closeBtn?.addEventListener("click", closeDrawer);
 
-  drawer?.addEventListener("click", (e) => {
-    if (e.target === drawer) closeDrawer();
+  drawer.addEventListener("click", (e) => {
+    if (e.target === drawer) closeDrawer(); // click outside panel closes
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && drawer?.classList.contains("open")) closeDrawer();
+    if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
   });
 
-  /* Login state in drawer */
+  // ---- Populate login state inside drawer ----
   function avatarUrl(u) {
     if (!u?.avatar) return "https://cdn.discordapp.com/embed/avatars/0.png";
     const ext = u.avatar.startsWith("a_") ? "gif" : "png";
@@ -47,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res  = await fetch("/me", { credentials: "include" });
       const data = await res.json();
+      console.log("[nav] /me", data);
 
       if (data?.loggedIn && data.user) {
         loginBtn?.classList.add("hidden");
@@ -55,21 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
           const img  = drawerUser.querySelector(".user-avatar");
           const name = drawerUser.querySelector(".user-username");
           const id   = drawerUser.querySelector(".user-id .val");
-          img.src = avatarUrl(data.user);
-          name.textContent = data.user.username;
-          id.textContent = data.user.id;
+          if (img)  img.src = avatarUrl(data.user);
+          if (name) name.textContent = data.user.username;
+          if (id)   id.textContent   = data.user.id;
 
           const logout = drawerUser.querySelector(".logout-btn");
-          logout.onclick = async () => {
-            try { await fetch("/logout", { method: "POST", credentials: "include" }); } catch {}
-            location.reload();
-          };
+          if (logout) {
+            logout.onclick = async () => {
+              try { await fetch("/logout", { method: "POST", credentials: "include" }); } catch {}
+              location.reload();
+            };
+          }
         }
       } else {
         if (loginBtn) loginBtn.href = "/login";
         drawerUser?.classList.remove("show");
       }
-    } catch {
+    } catch (err) {
+      console.warn("[nav] /me fetch failed", err);
       if (loginBtn) loginBtn.href = "/login";
       drawerUser?.classList.remove("show");
     }
