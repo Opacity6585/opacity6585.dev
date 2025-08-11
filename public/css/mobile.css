@@ -53,6 +53,7 @@
   .user-btn { 
     padding: 4px 8px; 
   }
+  
   #login-link { 
     padding: 6px 10px; 
   }
@@ -68,7 +69,9 @@
     z-index: 1000;
   }
 
-  main { padding: 0 .9rem; }
+  main { 
+    padding: 0 .9rem; 
+  }
 
   /* Tabs become scrollable on small screens */
   .tabs {
@@ -102,21 +105,25 @@
     padding: 1rem 1.25rem;
     align-items: center;
   }
+  
   header h1 { 
     font-size: 1.5rem; 
     max-width: none; 
   }
+  
   nav { 
     order: 0; 
     flex: 0 0 auto; 
     gap: 12px; 
     margin: 0 0 0 auto; 
   }
+  
   #user-menu, .user-menu { 
     order: 0; 
     width: auto; 
     margin: 0 0 0 12px; 
   }
+  
   .user-dropdown {
     position: absolute;   /* anchor to the button again on tablets */
     top: calc(100% + 6px);
