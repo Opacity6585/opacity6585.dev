@@ -5,7 +5,7 @@
   --mobile-header-h: 58px;
 }
 
-/* Small phones and below */
+/* Phones */
 @media (max-width: 720px) {
   body {
     padding-top: env(safe-area-inset-top);
@@ -43,7 +43,6 @@
     font-size: .95rem;
   }
 
-  /* ===== Drawer + nav on phones ===== */
   .site-nav .nav-links {
     display: none;
   }
@@ -61,7 +60,6 @@
     padding: 0 .9rem;
   }
 
-  /* Tabs become scrollable on small screens */
   .tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -73,7 +71,7 @@
   }
 }
 
-/* Tiny phones: tighten spacing/fonts a bit more */
+/* Tiny phones */
 @media (max-width: 360px) {
   header h1 {
     font-size: 1.1rem;
@@ -85,7 +83,7 @@
   }
 }
 
-/* Tablet: keep everything on a single header row and use inline dropdown */
+/* Tablets */
 @media (min-width: 721px) and (max-width: 1024px) {
   header {
     padding: 1rem 1.25rem;
@@ -105,21 +103,20 @@
   }
 
   .site-nav .nav-links {
-    display: flex;
-  }
-
-  .hamburger {
     display: none;
   }
 
-  /* allow the header pill to appear again on tablet+ if you render it */
+  .site-nav .hamburger {
+    display: inline-flex;
+  }
+
   #user-menu,
   .user-menu {
     display: flex;
   }
 }
 
-/* Respect reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
