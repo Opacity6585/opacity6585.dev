@@ -1,4 +1,3 @@
-// /nav.js
 document.addEventListener("DOMContentLoaded", () => {
   const drawer   = document.getElementById("nav-drawer");
   const openBtn  = document.getElementById("nav-toggle");
@@ -8,44 +7,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginBtn   = document.getElementById("drawer-login-btn");
   const drawerUser = document.getElementById("drawer-user");
 
-  if (!drawer || !openBtn) {
-    console.warn("[nav] Missing drawer or toggle button. Check IDs.");
-    return;
-  }
+  if (!drawer || !openBtn) return;
 
   function openDrawer() {
-    console.log("[nav] openDrawer");
-    drawer.removeAttribute("hidden");
     drawer.classList.add("open");
     body.classList.add("no-scroll");
+    openBtn.classList.add("active");
     openBtn.setAttribute("aria-expanded", "true");
   }
-
   function closeDrawer() {
-    console.log("[nav] closeDrawer");
     drawer.classList.remove("open");
-    setTimeout(() => { drawer.setAttribute("hidden", ""); }, 200);  // hide after slide-out
     body.classList.remove("no-scroll");
+    openBtn.classList.remove("active");
     openBtn.setAttribute("aria-expanded", "false");
   }
 
   openBtn.addEventListener("click", () => {
-    console.log("[nav] toggle clicked");
-    const isOpen = drawer.classList.contains("open");
-    isOpen ? closeDrawer() : openDrawer();
+    drawer.classList.contains("open") ? closeDrawer() : openDrawer();
   });
-
   closeBtn?.addEventListener("click", closeDrawer);
-
   drawer.addEventListener("click", (e) => {
-    if (e.target === drawer) closeDrawer(); // click outside panel closes
+    if (e.target === drawer) closeDrawer();
   });
-
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
   });
 
-  // ---- Populate login state inside drawer ----
   function avatarUrl(u) {
     if (!u?.avatar) return "https://cdn.discordapp.com/embed/avatars/0.png";
     const ext = u.avatar.startsWith("a_") ? "gif" : "png";
@@ -56,34 +43,27 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res  = await fetch("/me", { credentials: "include" });
       const data = await res.json();
-      console.log("[nav] /me", data);
 
       if (data?.loggedIn && data.user) {
         loginBtn?.classList.add("hidden");
         if (drawerUser) {
           drawerUser.classList.add("show");
-          const img  = drawerUser.querySelector(".user-avatar");
-          const name = drawerUser.querySelector(".user-username");
-          const id   = drawerUser.querySelector(".user-id .val");
-          if (img)  img.src = avatarUrl(data.user);
-          if (name) name.textContent = data.user.username;
-          if (id)   id.textContent   = data.user.id;
+          drawerUser.querySelector(".user-avatar").src = avatarUrl(data.user);
+          drawerUser.querySelector(".user-username").textContent = data.user.username;
+          drawerUser.querySelector(".user-id .val").textContent   = data.user.id;
 
           const logout = drawerUser.querySelector(".logout-btn");
-          if (logout) {
-            logout.onclick = async () => {
-              try { await fetch("/logout", { method: "POST", credentials: "include" }); } catch {}
-              location.reload();
-            };
-          }
+          logout.onclick = async () => {
+            try { await fetch("/logout", { method: "POST", credentials: "include" }); } catch {}
+            location.reload();
+          };
         }
       } else {
-        if (loginBtn) loginBtn.href = "/login";
+        if (loginBtn) loginBtn.classList.remove("hidden");
         drawerUser?.classList.remove("show");
       }
-    } catch (err) {
-      console.warn("[nav] /me fetch failed", err);
-      if (loginBtn) loginBtn.href = "/login";
+    } catch {
+      if (loginBtn) loginBtn.classList.remove("hidden");
       drawerUser?.classList.remove("show");
     }
   })();

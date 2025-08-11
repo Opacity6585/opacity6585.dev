@@ -20,6 +20,10 @@ body {
   height: 100%;
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,6 +31,9 @@ body {
   color: var(--text);
   line-height: 1.6;
 }
+
+/* utility */
+.hidden { display: none !important; }
 
 /* Header */
 header {
@@ -53,18 +60,13 @@ header h1 {
   width: 100%;
 }
 
-.site-nav .nav-links {
-  display: none;
-}
+.site-nav .nav-links { display: none; }
 
 nav a {
   color: var(--muted);
   text-decoration: none;
 }
-
-nav a:hover {
-  color: #fff;
-}
+nav a:hover { color: #fff; }
 
 /* Main */
 main {
@@ -73,14 +75,8 @@ main {
   padding: 0 1rem;
 }
 
-h1,
-h2 {
-  color: #fff;
-}
-
-a {
-  color: var(--brand);
-}
+h1, h2 { color: #fff; }
+a { color: var(--brand); }
 
 /* Footer */
 footer {
@@ -107,29 +103,16 @@ footer {
   background: #2a2a2a;
   transition: background .15s ease, border-color .15s ease, transform .04s ease;
 }
-
-.btn:hover {
-  background: #313131;
-  border-color: #3a3a3a;
-}
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-.btn.block {
-  width: 100%;
-}
+.btn:hover { background: #313131; border-color: #3a3a3a; }
+.btn:active { transform: translateY(1px); }
+.btn.block { width: 100%; }
 
 .btn-primary {
   background: var(--brand);
   color: #fff;
   border-color: transparent;
 }
-
-.btn-primary:hover {
-  background: var(--brand-2);
-}
+.btn-primary:hover { background: var(--brand-2); }
 
 /* ===== Hamburger ===== */
 .hamburger {
@@ -145,7 +128,6 @@ footer {
   cursor: pointer;
   margin-left: auto;
 }
-
 .hamburger span {
   width: 18px;
   height: 2px;
@@ -154,17 +136,9 @@ footer {
   transition: transform .18s ease, opacity .18s ease;
 }
 
-.nav-drawer.open + ._anim-hook .hamburger span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.nav-drawer.open + ._anim-hook .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-drawer.open + ._anim-hook .hamburger span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ===== Drawer ===== */
 .nav-drawer {
@@ -174,10 +148,7 @@ footer {
   background: rgba(0,0,0,0.5);
   z-index: 1000;
 }
-
-.nav-drawer.open {
-  display: block;
-}
+.nav-drawer.open { display: block; }
 
 .drawer-panel {
   position: absolute;
@@ -193,12 +164,9 @@ footer {
   padding: 16px;
   overflow-y: auto;
   transform: translateX(100%);
-  transition: transform .2s ease-out;
+  transition: transform .22s ease-out;
 }
-
-.nav-drawer.open .drawer-panel {
-  transform: translateX(0);
-}
+.nav-drawer.open .drawer-panel { transform: translateX(0); }
 
 .drawer-head {
   display: flex;
@@ -209,7 +177,6 @@ footer {
   border-bottom: 1px solid #2a2a2a;
   padding-bottom: 8px;
 }
-
 .drawer-close {
   background: #2a2a2a;
   border: 1px solid #333;
@@ -220,9 +187,7 @@ footer {
   cursor: pointer;
 }
 
-.drawer-panel .btn {
-  margin: 8px 0 16px;
-}
+.drawer-panel .btn { margin: 8px 0 16px; }
 
 .drawer-links {
   display: flex;
@@ -230,7 +195,6 @@ footer {
   gap: 18px;
   padding-top: 10px;
 }
-
 .drawer-links a {
   color: #eaeaea;
   text-decoration: none;
@@ -246,37 +210,21 @@ footer {
   padding: 6px 0 14px 0;
   margin-bottom: 8px;
 }
-
-.drawer-user.show {
-  display: flex;
-}
+.drawer-user.show { display: flex; }
 
 .drawer-user .row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .drawer-user .user-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
 }
-
-.drawer-user .user-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.drawer-user .user-username {
-  font-weight: 600;
-}
-
-.drawer-user .user-id {
-  color: #bbb;
-  font-size: .9rem;
-}
+.drawer-user .user-meta { display: flex; flex-direction: column; gap: 2px; }
+.drawer-user .user-username { font-weight: 600; }
+.drawer-user .user-id { color: #bbb; font-size: .9rem; }
 
 .drawer-user .logout-btn {
   width: 100%;
@@ -287,11 +235,6 @@ footer {
   color: #eaeaea;
   cursor: pointer;
 }
+.drawer-user .logout-btn:hover { background: #313131; }
 
-.drawer-user .logout-btn:hover {
-  background: #313131;
-}
-
-.no-scroll {
-  overflow: hidden;
-}
+.no-scroll { overflow: hidden; }
