@@ -7,7 +7,9 @@
 
 /* Small phones and below */
 @media (max-width: 720px) {
-  body { padding-top: env(safe-area-inset-top); }
+  body { 
+    padding-top: env(safe-area-inset-top); 
+  }
 
   header {
     position: sticky; top: 0;
@@ -40,7 +42,29 @@
     font-size: .95rem;
   }
 
-  /* user pill on its own line, right aligned */
+  /* ===== Drawer + nav on phones ===== */
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .drawer-panel {
+    top: 58px;
+  }
+
+  #user-menu,
+  .user-menu {
+    order: 3;
+    width: 100%;
+    margin-top: .35rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   #user-menu, .user-menu {
     order: 3;
     margin-left: 0;
@@ -58,7 +82,6 @@
     padding: 6px 10px; 
   }
 
-  /* Dropdown pinned within safe gutters, below the sticky header */
   .user-dropdown {
     position: fixed;
     top: calc(env(safe-area-inset-top) + var(--mobile-header-h) + 4px);
@@ -73,12 +96,12 @@
     padding: 0 .9rem; 
   }
 
-  /* Tabs become scrollable on small screens */
   .tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     gap: 8px;
   }
+
   .tab { 
     flex: 0 0 auto; 
   }
@@ -90,9 +113,11 @@
     font-size: 1.1rem; 
     max-width: 70%; 
   }
+
   nav a { 
     font-size: .9rem; 
   }
+
   .user-dropdown { 
     left: 10px; 
     right: 10px; 
@@ -125,11 +150,19 @@
   }
   
   .user-dropdown {
-    position: absolute;   /* anchor to the button again on tablets */
+    position: absolute;
     top: calc(100% + 6px);
     right: 0;
     left: unset;
     max-width: 320px;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
   }
 }
 

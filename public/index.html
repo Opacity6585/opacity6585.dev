@@ -15,18 +15,47 @@
   <link rel="stylesheet" href="/css/mobile.css">
 
   <script src="user.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
   <header>
     <h1>Opacity6585 - Starboy Developer & Owner</h1>
-    <nav>
-      <a href="commands.html">Commands</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="https://discord.gg/KMHwb3u7DM">Support</a>
-      <div id="user-menu" class="user-menu"></div>
+    <nav class="site-nav">
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/commands.html">Commands</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="https://discord.gg/KMHwb3u7DM">Support</a>
+        </div>
+
+        <div id="user-menu" class="user-menu"></div>
+
+        <button class="hamburger" id="nav-toggle" aria-label="Open menu" aria-controls="nav-drawer" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
-  </header>
+</header>
+
+<div id="nav-drawer" class="nav-drawer" hidden>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+        <div class="drawer-head">
+            <div id="drawer-title">Menu</div>
+            <button class="drawer-close" id="nav-close" aria-label="Close menu">✕</button>
+        </div>
+        <nav class="drawer-links">
+            <a id="drawer-login" href="/login">Login</a>
+            <a href="/index.html">Home</a>
+            <a href="/commands.html">Commands</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="https://discord.gg/KMHwb3u7DM">Support</a>
+        </nav>
+    </div>
+</div>
+
   <main>
     <section>
       <h2>Hey, I'm Opacity6585 👋</h2>
