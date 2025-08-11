@@ -1,77 +1,135 @@
-/* ===== Global mobile tweaks ===== */
-@media (max-width: 720px){
-  
-  header { 
-    padding:.75rem .9rem; 
-    gap:.5rem 
+/* ===== Global mobile & responsive tweaks ===== */
+
+/* iOS notch safety */
+:root {
+  --mobile-header-h: 58px;
+}
+
+/* Small phones and below */
+@media (max-width: 720px) {
+  body { padding-top: env(safe-area-inset-top); }
+
+  header {
+    position: sticky; top: 0;
+    z-index: 5;
+    padding: .75rem .9rem;
+    gap: .5rem;
+    min-height: var(--mobile-header-h);
+    background: var(--card);
   }
-  
+
   header h1 {
-    font-size:1.25rem; 
-    line-height:1.2; 
-    margin:0; 
-    max-width:65%;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 65%;
   }
 
   nav {
-    order:2; 
-    flex:1 1 100%;
-    margin-left:0; 
-    margin-top:.35rem;
-    gap:8px; 
-    flex-wrap:wrap; 
-    justify-content:flex-start;
+    order: 2;
+    flex: 1 1 100%;
+    margin-left: 0;
+    margin-top: .35rem;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
-  
-  nav a { 
-    margin:0; 
-    font-size:.95rem 
+
+  nav a {
+    margin: 0;
+    font-size: .95rem;
   }
 
   /* user pill on its own line, right aligned */
-  #user-menu,.user-menu {
-    order:3; 
-    margin-left:0; 
-    margin-top:.35rem;
-    display:flex; 
-    justify-content:flex-end; 
-    width:100%;
+  #user-menu, .user-menu {
+    order: 3;
+    margin-left: 0;
+    margin-top: .35rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
-  
+
   .user-btn { 
-    padding:4px 8px 
+    padding: 4px 8px; 
   }
-  
   #login-link { 
-    padding:6px 10px 
+    padding: 6px 10px; 
   }
 
-  /* Dropdown pinned within safe gutters */
+  /* Dropdown pinned within safe gutters, below the sticky header */
   .user-dropdown {
-    position:fixed; 
-    top:58px; 
-    right:12px; 
-    left:12px;
-    max-width:420px; 
-    margin-left:auto; 
-    z-index:1000;
+    position: fixed;
+    top: calc(env(safe-area-inset-top) + var(--mobile-header-h) + 4px);
+    left: 12px;
+    right: 12px;
+    max-width: 420px;
+    margin-left: auto;
+    z-index: 1000;
   }
 
-  main { 
-    padding:0 .9rem 
+  main { padding: 0 .9rem; }
+
+  /* Tabs become scrollable on small screens */
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+  .tab { 
+    flex: 0 0 auto; 
   }
 }
 
-/* Tabs become scrollable on small screens */
-@media (max-width: 600px) {
-  
-  .tabs { 
-    overflow-x:auto; 
-    -webkit-overflow-scrolling:touch; 
-    gap:8px 
+/* Tiny phones: tighten spacing/fonts a bit more */
+@media (max-width: 360px) {
+  header h1 { 
+    font-size: 1.1rem; 
+    max-width: 70%; 
   }
-  
-  .tab { 
-    flex:0 0 auto 
+  nav a { 
+    font-size: .9rem; 
+  }
+  .user-dropdown { 
+    left: 10px; 
+    right: 10px; 
+  }
+}
+
+/* Tablet: keep everything on a single header row and use inline dropdown */
+@media (min-width: 721px) and (max-width: 1024px) {
+  header {
+    padding: 1rem 1.25rem;
+    align-items: center;
+  }
+  header h1 { 
+    font-size: 1.5rem; 
+    max-width: none; 
+  }
+  nav { 
+    order: 0; 
+    flex: 0 0 auto; 
+    gap: 12px; 
+    margin: 0 0 0 auto; 
+  }
+  #user-menu, .user-menu { 
+    order: 0; 
+    width: auto; 
+    margin: 0 0 0 12px; 
+  }
+  .user-dropdown {
+    position: absolute;   /* anchor to the button again on tablets */
+    top: calc(100% + 6px);
+    right: 0;
+    left: unset;
+    max-width: 320px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { 
+    transition: none !important; 
+    animation: none !important; 
   }
 }
