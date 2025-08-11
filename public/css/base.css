@@ -20,6 +20,7 @@ body {
   height: 100%;
 }
 
+/* prevent layout shift when we lock scrolling */
 html {
   scrollbar-gutter: stable both-edges;
 }
@@ -114,42 +115,61 @@ footer {
 }
 .btn-primary:hover { background: var(--brand-2); }
 
-/* ===== Hamburger ===== */
+/* ===== Hamburger (stacked) ===== */
 .hamburger {
   display: inline-flex;
+  flex-direction: column;           /* stack the lines */
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   width: 40px;
   height: 40px;
   border: 1px solid #333;
   border-radius: 8px;
   background: #222;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
   cursor: pointer;
   margin-left: auto;
+  transition: background .15s ease, border-color .15s ease;
 }
+.hamburger:hover { background: #252525; border-color: #3a3a3a; }
+
 .hamburger span {
-  width: 18px;
+  width: 20px;
   height: 2px;
   background: #eaeaea;
   display: block;
   transition: transform .18s ease, opacity .18s ease;
 }
 
+/* morph to X when active */
 .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ===== Drawer ===== */
+/* ===== Drawer (animated) ===== */
+/* Use opacity/visibility so the overlay can fade; panel slides with transform */
 .nav-drawer {
-  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(1.5px);
   z-index: 1000;
-}
-.nav-drawer.open { display: block; }
 
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .22s ease-out, visibility 0s linear .22s; /* delay hiding visibility so fade completes */
+}
+
+/* when open, enable interactions + fade in */
+.nav-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .22s ease-out;
+}
+
+/* the sliding panel */
 .drawer-panel {
   position: absolute;
   right: 0;
@@ -163,9 +183,12 @@ footer {
   flex-direction: column;
   padding: 16px;
   overflow-y: auto;
-  transform: translateX(100%);
+
+  transform: translateX(100%);      /* off-canvas */
   transition: transform .22s ease-out;
 }
+
+/* slide in when drawer is open */
 .nav-drawer.open .drawer-panel { transform: translateX(0); }
 
 .drawer-head {
@@ -202,6 +225,7 @@ footer {
   text-align: center;
 }
 
+/* user block inside drawer */
 .drawer-user {
   display: none;
   flex-direction: column;
@@ -237,4 +261,5 @@ footer {
 }
 .drawer-user .logout-btn:hover { background: #313131; }
 
+/* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
