@@ -56,7 +56,7 @@ header h1 {
   width: 100%;
 }
 
-.site-nav .nav-links { display: flex; gap: 12px; }
+.site-nav .nav-links { display:none !important; }
 
 nav a {
   color: var(--muted);
