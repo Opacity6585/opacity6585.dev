@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root     = document.documentElement;
   const drawer   = document.getElementById("nav-drawer");
   const openBtn  = document.getElementById("nav-toggle");
   const closeBtn = document.getElementById("nav-close");
@@ -8,6 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerUser = document.getElementById("drawer-user");
 
   if (!drawer || !openBtn) return;
+
+  // --- Scrollbar width compensation ---
+  function setScrollbarWidthVar() {
+    const sbw = window.innerWidth - document.documentElement.clientWidth;
+    root.style.setProperty("--sbw", sbw + "px");
+  }
+  setScrollbarWidthVar();
+  window.addEventListener("resize", setScrollbarWidthVar);
 
   function openDrawer() {
     drawer.classList.add("open");
