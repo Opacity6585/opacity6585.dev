@@ -54,7 +54,6 @@ header h1 {
   width: 100%;
 }
 
-/* show desktop links by default; mobile.css will hide them on small screens */
 .site-nav .nav-links { display: flex; gap: 12px; }
 
 nav a {
@@ -65,7 +64,7 @@ nav a:hover { color: #fff; }
 
 /* Main */
 main {
-  max-width: none;
+  max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
