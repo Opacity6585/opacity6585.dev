@@ -165,7 +165,7 @@ footer {
 .drawer-panel {
   position: fixed;
   top: 0;
-  right: -1px;
+  right: 29px;
   height: 100%;
   width: min(380px, 100svw);
   background: #1e1e1e;
@@ -258,4 +258,5 @@ footer {
 
 /* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
+
 
