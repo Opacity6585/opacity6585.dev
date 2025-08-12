@@ -11,19 +11,12 @@
   --radius: 10px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 /* prevent layout shift when we lock scrolling */
-html {
-  scrollbar-gutter: stable both-edges;
-}
+html { scrollbar-gutter: stable both-edges; }
 
 body {
   margin: 0;
@@ -61,7 +54,8 @@ header h1 {
   width: 100%;
 }
 
-.site-nav .nav-links { display: none; }
+/* show desktop links by default; mobile.css will hide them on small screens */
+.site-nav .nav-links { display: flex; gap: 12px; }
 
 nav a {
   color: var(--muted);
@@ -118,7 +112,7 @@ footer {
 /* ===== Hamburger (stacked) ===== */
 .hamburger {
   display: inline-flex;
-  flex-direction: column;           /* stack the lines */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
@@ -146,8 +140,8 @@ footer {
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ===== Drawer (animated) ===== */
-/* Use opacity/visibility so the overlay can fade; panel slides with transform */
+/* ===== Drawer (overlay + panel) ===== */
+
 .nav-drawer {
   position: fixed;
   inset: 0;
@@ -158,10 +152,9 @@ footer {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity .22s ease-out, visibility 0s linear .22s; /* delay hiding visibility so fade completes */
+  transition: opacity .22s ease-out, visibility 0s linear .22s;
 }
 
-/* when open, enable interactions + fade in */
 .nav-drawer.open {
   opacity: 1;
   visibility: visible;
@@ -169,13 +162,12 @@ footer {
   transition: opacity .22s ease-out;
 }
 
-/* the sliding panel */
 .drawer-panel {
-  position: absolute;
-  right: 0;
+  position: fixed;
   top: 0;
+  right: max(0px, env(safe-area-inset-right));
   height: 100%;
-  width: min(92vw, 380px);
+  width: min(380px, 100svw);
   background: #1e1e1e;
   border-left: 1px solid #2a2a2a;
   box-shadow: -16px 0 40px rgba(0,0,0,0.4);
@@ -184,11 +176,15 @@ footer {
   padding: 16px;
   overflow-y: auto;
 
-  transform: translateX(100%);      /* off-canvas */
+  transform: translateX(100%);
   transition: transform .22s ease-out;
+  z-index: 1001;
 }
 
-/* slide in when drawer is open */
+@supports not (width: 100svw) {
+  .drawer-panel { width: min(380px, 100vw); }
+}
+
 .nav-drawer.open .drawer-panel { transform: translateX(0); }
 
 .drawer-head {
@@ -225,7 +221,6 @@ footer {
   text-align: center;
 }
 
-/* user block inside drawer */
 .drawer-user {
   display: none;
   flex-direction: column;
@@ -263,73 +258,3 @@ footer {
 
 /* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
-
-/* ===== Drawer hardening (put this at the very end of base.css) ===== */
-
-/* Overlay */
-.nav-drawer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(1.5px);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity .22s ease-out, visibility 0s linear .22s;
-}
-.nav-drawer.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity .22s ease-out;
-}
-
-/* Sliding panel */
-.drawer-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: min(92vw, 380px);
-  background: #1e1e1e;
-  border-left: 1px solid #2a2a2a;
-  box-shadow: -16px 0 40px rgba(0,0,0,.4);
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  overflow-y: auto;
-
-  transform: translateX(100%);
-  transition: transform .22s ease-out;
-  z-index: 1001;
-}
-.nav-drawer.open .drawer-panel {
-  transform: translateX(0);
-}
-
-.hamburger {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #333;
-  border-radius: 8px;
-  background: #222;
-  cursor: pointer;
-  margin-left: auto;
-  transition: background .15s ease, border-color .15s ease;
-}
-.hamburger span {
-  width: 20px;
-  height: 2px;
-  background: #eaeaea;
-  display: block;
-  transition: transform .18s ease, opacity .18s ease;
-}
-.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
