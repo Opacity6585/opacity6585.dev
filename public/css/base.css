@@ -65,7 +65,7 @@ nav a:hover { color: #fff; }
 
 /* Main */
 main {
-  max-width: 860px;
+  max-width: none;
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -258,5 +258,3 @@ footer {
 
 /* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
-
-
