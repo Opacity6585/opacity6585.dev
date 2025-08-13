@@ -38,7 +38,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: .75rem;
+  gap: .50rem;
   flex-wrap: wrap;
 }
 
@@ -116,9 +116,9 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3px;
-  width: 34px;
-  height: 34px;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #333;
   border-radius: 8px;
   background: #222;
