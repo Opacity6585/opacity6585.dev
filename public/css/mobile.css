@@ -15,10 +15,17 @@
     position: sticky;
     top: 0;
     z-index: 5;
-    padding: .75rem .9rem;
+    padding: calc(.5rem + env(safe-area-inset-top)) .9rem .5rem;
     gap: .5rem;
-    min-height: var(--mobile-header-h);
+    height: 56px;
     background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    top: 0;
   }
 
   header h1 {
