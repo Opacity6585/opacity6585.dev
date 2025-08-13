@@ -35,7 +35,7 @@ body {
 header {
   background: var(--card);
   padding: 0 1rem;
-  height: 40px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,6 +125,10 @@ footer {
   background: #222;
   cursor: pointer;
   margin-left: auto;
+
+  position: relative;
+  top: -4px;
+
   transition: background .15s ease, border-color .15s ease;
 }
 .hamburger:hover { background: #252525; border-color: #3a3a3a; }
@@ -260,5 +264,3 @@ footer {
 
 /* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
-
-
