@@ -34,7 +34,7 @@ body {
 /* Header */
 header {
   background: var(--card);
-  padding: .6rem 1rem;
+  padding: .4rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
