@@ -35,7 +35,7 @@ body {
 header {
   background: var(--card);
   padding: 0 1rem;
-  height: 48px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -260,3 +260,4 @@ footer {
 
 /* while drawer open, prevent page scroll (no layout shift thanks to scrollbar-gutter) */
 .no-scroll { overflow: hidden; }
+
